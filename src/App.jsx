@@ -44,35 +44,44 @@ function App() {
 
     return (
         <>
+            <header>
             <h1>Fruitmand bezorgservice</h1>
+            <h4>Je mag toch niet naar buiten</h4>
+            </header>
+            {/*<FruitCounter*/}
+            {/*title="🍌Bananen"*/}
+            {/*counterName={bananaCounter}*/}
+            {/*/>*/}
 
-            <FruitCounter
-            title="🍌Bananen"
-            counterName={bananaCounter}
-            />
-
+            <div className="counterArea">
             <h2>🍌 Bananen</h2>
             <button type="button" onClick={() => setBananaCounter(bananaCounter ? bananaCounter - 1 : 0)}>-</button>
             <p>{bananaCounter}</p>
             <button type="button" onClick={() => setBananaCounter(bananaCounter + 1)}>+</button>
+            </div>
 
+            <div className="counterArea">
             <h2>🍓 Aardbeien</h2>
             <button type="button"
                     onClick={() => setStrawberryCounter(strawberryCounter ? strawberryCounter - 1 : 0)}>-
             </button>
             <p>{strawberryCounter}</p>
             <button type="button" onClick={() => setStrawberryCounter(strawberryCounter + 1)}>+</button>
+            </div>
 
+            <div className="counterArea">
             <h2>🍏 Appels</h2>
             <button type="button" onClick={() => setAppleCounter(appleCounter ? appleCounter - 1 : 0)}>-</button>
             <p>{appleCounter}</p>
             <button type="button" onClick={() => setAppleCounter(appleCounter + 1)}>+</button>
+            </div>
 
+            <div className="counterArea">
             <h2>🥝 Kiwi's</h2>
             <button type="button" onClick={() => setKiwiCounter(kiwiCounter ? kiwiCounter - 1 : 0)}>-</button>
             <p>{kiwiCounter}</p>
             <button type="button" onClick={() => setKiwiCounter(kiwiCounter + 1)}>+</button>
-
+            </div>
 
             <button type="button"
                     onClick={() => resetFruits()}>
@@ -80,86 +89,90 @@ function App() {
             </button>
 
             <form onSubmit={handleSubmit}>
-                <label htmlFor="firstname">Voornaam</label>
-                <input
-                    type="text"
-                    name="firstname"
-                    value={formState.firstname}
-                    onChange={handleChange}
-                />
+                <fieldset>
+                    <label htmlFor="firstname">Voornaam</label>
+                    <input
+                        type="text"
+                        name="firstname"
+                        value={formState.firstname}
+                        onChange={handleChange}
+                    />
 
-                <label htmlFor="lastname">Achternaam</label>
-                <input
-                    type="text"
-                    name="lastname"
-                    value={formState.lastname}
-                    onChange={handleChange}
-                />
+                    <label htmlFor="lastname">Achternaam</label>
+                    <input
+                        type="text"
+                        name="lastname"
+                        value={formState.lastname}
+                        onChange={handleChange}
+                    />
 
-                <label htmlFor="age">Leeftijd</label>
-                <input
-                    type="number"
-                    name="age"
-                    value={formState.age}
-                    onChange={handleChange}
-                />
+                    <label htmlFor="age">Leeftijd</label>
+                    <input
+                        type="number"
+                        name="age"
+                        value={formState.age}
+                        onChange={handleChange}
+                    />
 
-                <label htmlFor="zipcode">Postcode</label>
-                <input
-                    type="text"
-                    name="zipcode"
-                    value={formState.zipcode}
-                    onChange={handleChange}
-                />
+                    <label htmlFor="zipcode">Postcode</label>
+                    <input
+                        type="text"
+                        name="zipcode"
+                        value={formState.zipcode}
+                        onChange={handleChange}
+                    />
 
-                <label htmlFor="deliveryfrequency">Bezorgfrequentie</label>
-                <select
-                    name="deliveryfrequency"
-                    value={formState.deliveryFrequency}
-                    onChange={handleChange}>
-                    <option value="weekly">Iedere week</option>
-                    <option value="every-other-week">Om de week</option>
-                    <option value="monthly">Iedere maand</option>
-                </select>
+                    <label htmlFor="deliveryfrequency">Bezorgfrequentie</label>
+                    <select
+                        name="deliveryfrequency"
+                        value={formState.deliveryFrequency}
+                        onChange={handleChange}>
+                        <option value="weekly">Iedere week</option>
+                        <option value="every-other-week">Om de week</option>
+                        <option value="monthly">Iedere maand</option>
+                    </select>
 
-                <label htmlFor="deliverytime">Tijdvak</label>
-                <input
-                    type="radio"
-                    name="deliveryTime"
-                    value="day"
-                    checked={formState.deliveryTime === "day"}
-                    onChange={handleChange}
-                />Overdag
-                <input
-                    type="radio"
-                    name="deliveryTime"
-                    value="evening"
-                    checked={formState.deliveryTime === "evening"}
-                    onChange={handleChange}
-                />'s Avonds
+                    <label htmlFor="deliverytime">Tijdvak</label>
+                    <input
+                        type="radio"
+                        name="deliveryTime"
+                        value="day"
+                        checked={formState.deliveryTime === "day"}
+                        onChange={handleChange}
+                    />Overdag
+                    <input
+                        type="radio"
+                        name="deliveryTime"
+                        value="evening"
+                        checked={formState.deliveryTime === "evening"}
+                        onChange={handleChange}
+                    />'s Avonds
 
-                <label htmlFor="comments">Opmerkingen</label>
-                <input
-                    type="textarea"
-                    name="comments"
-                    value={formState.comments}
-                    onChange={handleChange}
-                />
+                    <label htmlFor="comments">Opmerkingen</label>
+                    <textarea
+                        name="comments"
+                        rows="5"
+                        cols="40"
+                        value={formState.comments}
+                        onChange={handleChange}
+                    ></textarea>
 
-                <input
-                    type="checkbox"
-                    name="conditions"
-                    checked={formState.conditions}
-                    onChange={handleChange}
-                />
-                <label htmlFor="terms-and-conditions">Ik ga akkoord met de voorwaarden</label>
+                    <label htmlFor="terms-and-conditions">
+                        <input
+                            type="checkbox"
+                            name="conditions"
+                            checked={formState.conditions}
+                            onChange={handleChange}
+                        />
+                        Ik ga akkoord met de voorwaarden</label>
 
-                <button
-                    type="submit"
+                    <button
+                        type="submit"
 
-                >
-                    Verzend
-                </button>
+                    >
+                        Verzend
+                    </button>
+                </fieldset>
             </form>
         </>
 

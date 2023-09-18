@@ -1,0 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crafty+Girls&display=swap');
+* {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header {
+    border: 2px solid #246d79;
+    text-align: right;
+    padding: 10px 30px 10px 0;
+}
+
+h1 {
+    font-family: 'Crafty Girls', cursive;    font-size: 40px;
+    color: #246d79;
+    margin: 10px 0 0 0;
+}
+h4 {
+    color: #da7a21;
+    font-style: italic;
+
+
+}
+
+label {
+    display: block;
+    margin: 10px;
+}
+
+form {
+    display: block;
+    margin: 10px;
+    padding: 2px
+}
+
+fieldset {
+    border: 2px solid #ededed;
+    border-radius: 4px;
+    margin: 16px 0;
+}
+
+input {
+    margin: 0 0 0 10px;
+}
+
+select {
+    display: block;
+    margin: 12px 0 0 10px;
+}
+
+textarea {
+    margin: 0 0 0 10px;
+}
+
+.counterArea {
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 5px;
+}
+
+button {
+    padding: 20px;
+    border: lightgrey;
+    margin: 10px;
+}
+
+.counterArea {
+    border: 2px solid black;
+    margin: 10px;
+}
+
+h2, p {
+    text-align: center;
+}
+
