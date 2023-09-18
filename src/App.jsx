@@ -1,8 +1,6 @@
 import './App.css'
 import {useState} from "react";
-
-// import Button from "./components/Button.js";
-
+import FruitCounter from "./components/FruitCounter.jsx";
 
 function App() {
 
@@ -14,7 +12,7 @@ function App() {
     const [formState, setFormState] = useState({
         firstname: '',
         lastname: '',
-        age: '',
+        age: '0',
         zipcode: '',
         deliveryFrequency: '',
         deliveryTime: '',
@@ -32,40 +30,56 @@ function App() {
         });
     }
 
-    console.log(formState);
+    function handleSubmit(e) {
+        e.preventDefault();
+        console.log(formState, bananaCounter, strawberryCounter, appleCounter, kiwiCounter);
+    }
+
+    function resetFruits() {
+        setBananaCounter(0);
+        setStrawberryCounter(0);
+        setAppleCounter(0);
+        setKiwiCounter(0);
+    }
 
     return (
         <>
             <h1>Fruitmand bezorgservice</h1>
 
-            <h2>Bananen</h2>
+            <FruitCounter
+            title="🍌Bananen"
+            counterName={bananaCounter}
+            />
+
+            <h2>🍌 Bananen</h2>
             <button type="button" onClick={() => setBananaCounter(bananaCounter ? bananaCounter - 1 : 0)}>-</button>
             <p>{bananaCounter}</p>
             <button type="button" onClick={() => setBananaCounter(bananaCounter + 1)}>+</button>
 
-            <h2>Aardbeien</h2>
+            <h2>🍓 Aardbeien</h2>
             <button type="button"
                     onClick={() => setStrawberryCounter(strawberryCounter ? strawberryCounter - 1 : 0)}>-
             </button>
             <p>{strawberryCounter}</p>
             <button type="button" onClick={() => setStrawberryCounter(strawberryCounter + 1)}>+</button>
 
-            <h2>Appels</h2>
+            <h2>🍏 Appels</h2>
             <button type="button" onClick={() => setAppleCounter(appleCounter ? appleCounter - 1 : 0)}>-</button>
             <p>{appleCounter}</p>
             <button type="button" onClick={() => setAppleCounter(appleCounter + 1)}>+</button>
 
-            <h2>Kiwi's</h2>
+            <h2>🥝 Kiwi's</h2>
             <button type="button" onClick={() => setKiwiCounter(kiwiCounter ? kiwiCounter - 1 : 0)}>-</button>
             <p>{kiwiCounter}</p>
             <button type="button" onClick={() => setKiwiCounter(kiwiCounter + 1)}>+</button>
 
+
             <button type="button"
-                    onClick={() => setBananaCounter(0) + setStrawberryCounter(0) + setAppleCounter(0) + setKiwiCounter(0)}>
+                    onClick={() => resetFruits()}>
                 Reset
             </button>
 
-            <form action="">
+            <form onSubmit={handleSubmit}>
                 <label htmlFor="firstname">Voornaam</label>
                 <input
                     type="text"
@@ -146,8 +160,6 @@ function App() {
                 >
                     Verzend
                 </button>
-
-
             </form>
         </>
 
