@@ -19,7 +19,6 @@ h4 {
     color: #da7a21;
     font-style: italic;
 
-
 }
 
 label {
@@ -71,5 +70,6 @@ button {
 
 h2, p {
     text-align: center;
+    font-weight: bolder;
 }
 
